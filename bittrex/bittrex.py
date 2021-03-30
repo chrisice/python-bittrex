@@ -51,9 +51,12 @@ CONDITIONTYPE_STOP_LOSS_PERCENTAGE = 'STOP_LOSS_PERCENTAGE'
 
 API_V1_1 = 'v1.1'
 API_V2_0 = 'v2.0'
+API_V3 = 'v3'
+
 
 BASE_URL_V1_1 = 'https://bittrex.com/api/v1.1{path}?'
 BASE_URL_V2_0 = 'https://bittrex.com/api/v2.0{path}?'
+BASE_URL_V3 = 'https://bittrex.com/api/v3{path}?'
 
 PROTECTION_PUB = 'pub'  # public methods
 PROTECTION_PRV = 'prv'  # authenticated methods
@@ -472,7 +475,8 @@ class Bittrex(object):
         """
         return self._api_query(path_dict={
             API_V1_1: '/account/getbalance',
-            API_V2_0: '/key/balance/getbalance'
+            API_V2_0: '/key/balance/getbalance',
+            API_V3: '/balances'
         }, options={'currency': currency, 'currencyname': currency}, protection=PROTECTION_PRV)
 
     def get_deposit_address(self, currency):
