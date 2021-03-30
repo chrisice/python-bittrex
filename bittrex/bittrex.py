@@ -446,7 +446,8 @@ class Bittrex(object):
         """
         return self._api_query(path_dict={
             API_V1_1: '/account/getbalances',
-            API_V2_0: '/key/balance/GetBalances'
+            API_V2_0: '/key/balance/GetBalances',
+            API_V3: '/balances'
         }, protection=PROTECTION_PRV)
 
     def get_balance(self, currency):
